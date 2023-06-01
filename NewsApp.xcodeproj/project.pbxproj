@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CA9C7972A289634000223E2 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C7962A289634000223E2 /* CustomTextField.swift */; };
+		1CA9C79B2A289738000223E2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1CA9C79A2A289738000223E2 /* SnapKit */; };
 		1CE6122C2A28922800220A51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6122B2A28922800220A51 /* AppDelegate.swift */; };
 		1CE6122E2A28922800220A51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6122D2A28922800220A51 /* SceneDelegate.swift */; };
 		1CE612302A28922800220A51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6122F2A28922800220A51 /* LoginViewController.swift */; };
@@ -17,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CA9C7962A289634000223E2 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1CE612282A28922800220A51 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE6122B2A28922800220A51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE6122D2A28922800220A51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,12 +36,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CA9C79B2A289738000223E2 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CA9C7982A28963E000223E2 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CA9C7962A289634000223E2 /* CustomTextField.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		1CE6121F2A28922800220A51 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +72,7 @@
 			children = (
 				1CE612472A2893A500220A51 /* App */,
 				1CE612452A28938E00220A51 /* Screens */,
+				1CA9C7982A28963E000223E2 /* Custom Views */,
 				1CE612482A2893B600220A51 /* Sources */,
 			);
 			path = NewsApp;
@@ -118,6 +131,9 @@
 			dependencies = (
 			);
 			name = NewsApp;
+			packageProductDependencies = (
+				1CA9C79A2A289738000223E2 /* SnapKit */,
+			);
 			productName = NewsApp;
 			productReference = 1CE612282A28922800220A51 /* NewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -146,6 +162,9 @@
 				Base,
 			);
 			mainGroup = 1CE6121F2A28922800220A51;
+			packageReferences = (
+				1CA9C7992A289738000223E2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 1CE612292A28922800220A51 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -174,6 +193,7 @@
 			files = (
 				1CE612302A28922800220A51 /* LoginViewController.swift in Sources */,
 				1CE612422A28938400220A51 /* LoginModel.swift in Sources */,
+				1CA9C7972A289634000223E2 /* CustomTextField.swift in Sources */,
 				1CE6122C2A28922800220A51 /* AppDelegate.swift in Sources */,
 				1CE612442A28938B00220A51 /* LoginViewModel.swift in Sources */,
 				1CE6122E2A28922800220A51 /* SceneDelegate.swift in Sources */,
@@ -384,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1CA9C7992A289738000223E2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1CA9C79A2A289738000223E2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CA9C7992A289738000223E2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1CE612202A28922800220A51 /* Project object */;
 }

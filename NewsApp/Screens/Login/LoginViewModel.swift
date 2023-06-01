@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class LoginViewModel {
+  var email: String?
+  var password: String?
+  
+  func login() {
+    print("LoginViewModel")
+  }
+}
