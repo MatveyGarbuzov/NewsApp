@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1CA9C7972A289634000223E2 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C7962A289634000223E2 /* CustomTextField.swift */; };
 		1CA9C79B2A289738000223E2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1CA9C79A2A289738000223E2 /* SnapKit */; };
+		1CA9C79D2A28A285000223E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C79C2A28A285000223E2 /* Extensions.swift */; };
+		1CA9C79F2A28AC48000223E2 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA9C79E2A28AC48000223E2 /* ErrorLabel.swift */; };
 		1CE6122C2A28922800220A51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6122B2A28922800220A51 /* AppDelegate.swift */; };
 		1CE6122E2A28922800220A51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6122D2A28922800220A51 /* SceneDelegate.swift */; };
 		1CE612302A28922800220A51 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6122F2A28922800220A51 /* LoginViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		1CA9C7962A289634000223E2 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1CA9C79C2A28A285000223E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1CA9C79E2A28AC48000223E2 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		1CE612282A28922800220A51 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE6122B2A28922800220A51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CE6122D2A28922800220A51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				1CA9C7962A289634000223E2 /* CustomTextField.swift */,
+				1CA9C79E2A28AC48000223E2 /* ErrorLabel.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -74,6 +79,7 @@
 				1CE612452A28938E00220A51 /* Screens */,
 				1CA9C7982A28963E000223E2 /* Custom Views */,
 				1CE612482A2893B600220A51 /* Sources */,
+				1CA9C79C2A28A285000223E2 /* Extensions.swift */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -196,7 +202,9 @@
 				1CA9C7972A289634000223E2 /* CustomTextField.swift in Sources */,
 				1CE6122C2A28922800220A51 /* AppDelegate.swift in Sources */,
 				1CE612442A28938B00220A51 /* LoginViewModel.swift in Sources */,
+				1CA9C79F2A28AC48000223E2 /* ErrorLabel.swift in Sources */,
 				1CE6122E2A28922800220A51 /* SceneDelegate.swift in Sources */,
+				1CA9C79D2A28A285000223E2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

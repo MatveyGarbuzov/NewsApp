@@ -8,10 +8,10 @@
 import Foundation
 
 class LoginViewModel {
-  var email: String?
+  var login: String?
   var password: String?
   
-  func login() {
-    print("LoginViewModel")
+  var isValid: Bool {
+    login == "Matvey" && password == "Garbuzov"
   }
 }
