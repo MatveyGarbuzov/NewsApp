@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     let window = UIWindow(windowScene: windowScene)
 //    let navigationController = UINavigationController(rootViewController: LoginViewController())
-    let navigationController = UINavigationController(rootViewController: NewsViewController())
+    let navigationController = UINavigationController(rootViewController: CountriesViewController())
     
     window.rootViewController = navigationController
     self.window = window
