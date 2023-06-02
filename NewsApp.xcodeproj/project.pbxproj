@@ -80,7 +80,7 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
-		1CA9C7A02A28B52B000223E2 /* News */ = {
+		1CA9C7A02A28B52B000223E2 /* All Countries */ = {
 			isa = PBXGroup;
 			children = (
 				1CA9C7A12A28B537000223E2 /* CountriesViewController.swift */,
@@ -88,7 +88,7 @@
 				1CA9C7A72A28B9D4000223E2 /* CountriesModel.swift */,
 				1CA9C7A92A28D7ED000223E2 /* API.swift */,
 			);
-			path = News;
+			path = "All Countries";
 			sourceTree = "<group>";
 		};
 		1CE6121F2A28922800220A51 = {
@@ -124,7 +124,7 @@
 		1CE612452A28938E00220A51 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				1CA9C7A02A28B52B000223E2 /* News */,
+				1CA9C7A02A28B52B000223E2 /* All Countries */,
 				1CE612462A28939500220A51 /* Login */,
 			);
 			path = Screens;

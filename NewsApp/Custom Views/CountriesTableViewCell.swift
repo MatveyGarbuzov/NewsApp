@@ -10,10 +10,48 @@ import UIKit
 class CountriesTableViewCell: UITableViewCell {
   static let reuseIdentifier = "CountriesTableViewCell"
   
-  private let titleLabel = UILabel()
-  private let descriptionLabel = UILabel()
-  private let dateLabel = UILabel()
+  private let blurView: UIView = {
+    let blurEffect = UIBlurEffect(style: .systemThinMaterial)
+    let blurView = UIVisualEffectView(effect: blurEffect)
+    
+    return blurView
+  }()
+  
+  private let countryLabel: UILabel = {
+    let label = UILabel()
+    label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+    label.textAlignment = .right
+    return label
+  }()
+  
+  private let regionLabel: UILabel = {
+    let label = UILabel()
+    label.font = UIFont.systemFont(ofSize: 20, weight: .light)
+    label.textAlignment = .left
+    label.textColor = .lightGray
+    return label
+  }()
+  
+  private let nativeCountryLabel: UILabel = {
+    let label = UILabel()
+    label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+    label.textAlignment = .center
+    
+    return label
+  }()
+  
   private let flagImageView = UIImageView()
+  
+  private let horizontalStack: UIStackView = {
+    let stack = UIStackView()
+    stack.axis = .horizontal
+    stack.alignment = .bottom
+    stack.spacing = 5
+    
+    return stack
+  }()
+  
+  private let spacer = UIView()
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,49 +63,57 @@ class CountriesTableViewCell: UITableViewCell {
   }
   
   private func setupUI() {
-//    backgroundColor = .gray
-    contentView.backgroundColor = .red
-    contentView.layer.cornerRadius = 12
+    flagImageView.addSubview(blurView)
+    horizontalStack.addArrangedSubview(countryLabel)
+    horizontalStack.addArrangedSubview(regionLabel)
+    horizontalStack.addArrangedSubview(spacer)
     
-    contentView.addSubview(titleLabel)
-    contentView.addSubview(descriptionLabel)
-    contentView.addSubview(dateLabel)
     contentView.addSubview(flagImageView)
+    contentView.addSubview(horizontalStack)
+    contentView.addSubview(nativeCountryLabel)
     
-    titleLabel.snp.makeConstraints { make in
-      make.leading.equalToSuperview().offset(16)
-      make.trailing.equalToSuperview().inset(16)
-      make.top.equalToSuperview().offset(16)
-    }
-    descriptionLabel.snp.makeConstraints { make in
-      make.leading.equalTo(titleLabel)
-      make.trailing.equalTo(titleLabel)
-      make.top.equalTo(titleLabel.snp.bottom).offset(8)
-    }
-    dateLabel.snp.makeConstraints { make in
-      make.leading.equalTo(titleLabel)
-      make.trailing.equalTo(titleLabel)
-      make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
-    }
     flagImageView.snp.makeConstraints { make in
-      make.leading.equalTo(titleLabel)
-      make.trailing.equalTo(titleLabel)
+      make.left.right.equalToSuperview()
+      make.bottom.top.equalToSuperview().inset(5)
       make.height.equalTo(200)
-      make.top.equalTo(dateLabel.snp.bottom).offset(8)
-      make.bottom.equalToSuperview().inset(16)
     }
-    titleLabel.numberOfLines = 0
-    descriptionLabel.numberOfLines = 0
-    dateLabel.textColor = .red
+    blurView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
+    
+    nativeCountryLabel.snp.makeConstraints { make in
+      make.centerX.equalToSuperview()
+      make.centerY.equalToSuperview().offset(20)
+    }
+    
+    horizontalStack.snp.makeConstraints { make in
+      make.centerX.equalToSuperview()
+      make.bottom.equalTo(nativeCountryLabel.snp.top).offset(-5)
+      make.width.equalToSuperview()
+    }
+    countryLabel.snp.makeConstraints { make in
+      make.width.equalToSuperview().multipliedBy(0.5)
+    }
+    regionLabel.snp.makeConstraints { make in
+      make.width.equalToSuperview().multipliedBy(0.3)
+    }
+    
+//    horizontalStack.backgroundColor = .red
+//    countryLabel.backgroundColor = .blue
+//    regionLabel.backgroundColor = .blue
+//    nativeCountryLabel.backgroundColor = .blue
+
+    countryLabel.numberOfLines = 0
+    regionLabel.numberOfLines = 0
     flagImageView.contentMode = .scaleAspectFill
     flagImageView.clipsToBounds = true
+    flagImageView.layer.cornerRadius = 12
   }
   
-  
   func configure(with article: CountriesElement) {
-    titleLabel.text = article.name.common
+    countryLabel.text = article.name.common
     
-    descriptionLabel.text = article.region.rawValue
+    regionLabel.text = article.region.rawValue
     
     if let imageUrl = URL(string: article.flags.png) {
       loadImage(from: imageUrl) { image in
@@ -80,10 +126,10 @@ class CountriesTableViewCell: UITableViewCell {
     }
     
     guard let lang = article.languages?.first!.key else {
-      dateLabel.text = article.name.common
+      nativeCountryLabel.text = article.name.common
       return
     }
-    dateLabel.text = article.name.nativeName![lang]?.common
+    nativeCountryLabel.text = article.name.nativeName![lang]?.common
   }
   
   private func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
@@ -103,42 +149,3 @@ class CountriesTableViewCell: UITableViewCell {
   }
 
 }
-
-
-/*
- 
- func configure(with article: CountriesElement) {
-   titleLabel.text = article.name.common
-   
-   descriptionLabel.text = article.region.rawValue
-   
-   let imageUrl = URL(string: article.flags.png)!
-   // Инициализация задачи
-   let task = URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
-       // Проверяем наличие ошибок
-       guard let imageData = data, error == nil else {
-           print("Ошибка загрузки изображения: \(error!.localizedDescription)")
-           return
-       }
-       
-       // Декодирование изображения
-       if let image = UIImage(data: imageData) {
-           DispatchQueue.main.async {
-               // Показываем изображение в интерфейсе
-             self.flagImageView.image = image
-           }
-       }
-   }
-
-   // Запуск задачи
-   task.resume()
-   
-   
-   guard let lang = article.languages?.first!.key else {
-     dateLabel.text = article.name.common
-     return
-   }
-   dateLabel.text = article.name.nativeName![lang]?.common
- }
- 
- */
