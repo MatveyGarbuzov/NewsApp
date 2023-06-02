@@ -131,6 +131,8 @@ class LoginViewController: UIViewController {
     
     if viewModel.isValid {
       errorLabel.hide()
+      let NewsVC = NewsViewController()
+      navigationController?.setViewControllers([NewsVC], animated: true)
     } else {
       errorLabel.show()
     }
