@@ -1,4 +1,4 @@
-//
+
 //  CountriesViewController.swift
 //  NewsApp
 //
@@ -68,7 +68,16 @@ class CountriesViewController: UIViewController {
 extension CountriesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let country = viewModel.countries[indexPath.row]
-    print("Selected country: \(country)")
+    print("Selected country: \(country.name.common)")
+    
+    let detailedVC = CountryDetailViewController()
+    let detailedViewModel = DetailCountryViewModel()
+    detailedViewModel.detailCountry = country
+    detailedVC.viewModel = detailedViewModel
+
+    UIView.transition(with: navigationController!.view, duration: 0.5, animations: {
+      self.navigationController?.pushViewController(detailedVC, animated: true)
+    }, completion: nil)
   }
 }
 
@@ -84,6 +93,7 @@ extension CountriesViewController: UITableViewDataSource {
     let country = viewModel.countries[indexPath.row]
     print("Configuring: \(country.name.common)")
     cell.configure(with: country)
+    cell.selectionStyle = .none
     return cell
   }
 }

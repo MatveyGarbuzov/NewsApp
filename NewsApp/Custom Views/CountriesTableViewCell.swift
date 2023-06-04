@@ -112,7 +112,6 @@ class CountriesTableViewCell: UITableViewCell {
   
   func configure(with article: CountriesElement) {
     countryLabel.text = article.name.common
-    
     regionLabel.text = article.region.rawValue
     
     if let imageUrl = URL(string: article.flags.png) {

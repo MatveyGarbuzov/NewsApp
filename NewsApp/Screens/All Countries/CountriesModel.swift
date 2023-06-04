@@ -15,6 +15,7 @@ struct CountriesElement: Codable {
   //    let continents: [Continent]
   let flags: Flags
   let languages: [String:String]?
+  let latlng: [Double]
 }
 
 // MARK: - CapitalInfo
