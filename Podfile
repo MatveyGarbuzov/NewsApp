@@ -7,5 +7,6 @@ target 'CountryApp' do
 
   # Pods for CountryApp
 pod 'Moya', '~> 15.0'
+pod 'SDWebImage'
 
 end

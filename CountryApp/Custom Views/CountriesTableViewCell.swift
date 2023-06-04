@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CountriesTableViewCell: UITableViewCell {
   static let reuseIdentifier = "CountriesTableViewCell"
@@ -114,15 +115,8 @@ class CountriesTableViewCell: UITableViewCell {
     countryLabel.text = article.name.common
     regionLabel.text = article.region.rawValue
     
-    if let imageUrl = URL(string: article.flags.png) {
-      loadImage(from: imageUrl) { image in
-        if let image = image {
-          DispatchQueue.main.async {
-            self.flagImageView.image = image
-          }
-        }
-      }
-    }
+    guard let imageUrl = URL(string: article.flags.png) else { return }
+    flagImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "CountryPlaceholder"))
     
     guard let lang = article.languages?.first!.key else {
       nativeCountryLabel.text = article.name.common

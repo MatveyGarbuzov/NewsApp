@@ -28,7 +28,6 @@ class CountriesViewController: UIViewController {
     title = "Countries"
     navigationController?.navigationBar.prefersLargeTitles = true
     
-//    tableView.separatorInset = UIEdgeInsets(top: 0, left: 50, bottom: 100, right: 50)
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(CountriesTableViewCell.self, forCellReuseIdentifier: CountriesTableViewCell.reuseIdentifier)
