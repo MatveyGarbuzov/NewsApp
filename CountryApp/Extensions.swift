@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: Animations
 extension UIView {
   func animateInsidePress() {
     UIView.animate(withDuration: 0.15, animations: {
